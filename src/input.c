@@ -1,4 +1,4 @@
-#include "Input.h"
+#include "input.h"
 #include <stdio.h>
 
 int input (double g[N][N], int n)
