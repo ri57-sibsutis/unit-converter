@@ -128,7 +128,9 @@ int main()
 	printf("Enter value: ");
 	scanf("%lf", &value);
 	printf("\n");
-	rez = convert(i1-1, i2-1, value, n);
+	i1--;
+	i2--;
+	rez = convert(i1, i2, value, n);
 	printf("Result: %lf\n", rez);
 	return 0;
 }
