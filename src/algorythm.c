@@ -42,13 +42,18 @@ double Dijcstra(double g[N][N], int st, int sp, double in, int n)
 		visited[u] = true;
 		for(j = 0;j < n;j++)
 			if (!visited[j] && g[u][j] != 0 && D[u] != DBL_MAX && (D[u] + g[u][j] < D[j]))
-				D[j]=D[u] * g[u][j];
+			{
+				if(u < j)
+					D[j]=D[u] * g[u][j];
+				else
+					D[j] = D[u] / g[u][j];
+			}
 	}
 	if (st < sp)
-		in = in * D[sp];
+		in = in / D[sp];
 	else
-		if (st > sp)
-			in = in / D[sp];
+		if (st >  sp)
+			in = in * D[sp];
 		else
 			printf("Error!\n");
 	return in;
